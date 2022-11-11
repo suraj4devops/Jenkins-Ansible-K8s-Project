@@ -26,7 +26,7 @@ node {
     stage("copy the Manifest file and Run on k8s master"){
         sshagent(['jenkins-slave']){
             sh 'ssh -o StrictHostKeyChecking=no jenkins@192.168.30.138 cd /home/jenkins/Desktop'
-            sh 'ssh -o StrictHostKeyChecking=no jenkins@192.168.30.138 ansible-playbook k8s-playbook'
+            sh 'ssh -o StrictHostKeyChecking=no jenkins@192.168.30.138 ansible-playbook k8s_playbook'
         }
     }
 }     
