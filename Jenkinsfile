@@ -5,7 +5,7 @@ node {
     stage ("sending Docker file to ansible over SSH"){
         sshagent(['jenkins-slave']) {
             sh 'ssh -o StrictHostKeyChecking=no jenkins@192.168.30.138'
-            sh 'scp /var/lib/jenkins/workspace/jenkins-ansible-kubernetes/* jenkins@192.168.30.138:/home/jenkins/Desktop'
+            sh 'scp /var/lib/jenkins/workspace/jenkins_ansible_kubernetes/* jenkins@192.168.30.138:/home/jenkins/Desktop'
         }
     }
     stage("Docker Build Stage"){
