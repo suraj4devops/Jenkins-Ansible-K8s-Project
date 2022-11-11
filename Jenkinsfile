@@ -5,12 +5,12 @@ node {
     stage ("sending Docker file to ansible over SSH"){
         sshagent(['Ansible-Server']) {
             sh 'ssh -o StrictHostKeyChecking=no jenkins@192.168.30.138'
-            sh 'scp /var/lib/jenkins/workspace/Jenkins-Ansible-K8s/* jenkins@192.168.30.138:/home/jenkins/'
+            sh 'scp /var/lib/jenkins/workspace/Jenkins-Ansible-K8s/* jenkins@192.168.30.138:/home/jenkins/Desktop'
         }
     }
     stage("Docker Build Stage"){
         sshagent(['Ansible-Server']){
-            sh 'ssh -o StrictHostKeyChecking=no jenkins@192.168.30.138 cd /home/jenkins/'
+            sh 'ssh -o StrictHostKeyChecking=no jenkins@192.168.30.138 cd /home/jenkins/Desktop'
             sh 'ssh -o StrictHostKeyChecking=no jenkins@192.168.30.138 docker image build -t $JOB_NAME:v1.$BUILD_ID .'
         }
          
