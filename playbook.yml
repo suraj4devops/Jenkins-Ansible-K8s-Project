@@ -10,5 +10,5 @@
      - name: Run the deployment to create pod
        command: kubectl apply -f /opt/Deployment.yml
      - name: create new service to access website from outsite
-       command: kubectl apply -f /opt/demowebsite_Service.yml
+       command: kubectl apply -f /opt/service.yml
 
