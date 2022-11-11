@@ -20,7 +20,7 @@ node {
             sh 'ssh -o StrictHostKeyChecking=no jenkins@192.168.30.138 cd /home/jenkins/Desktop'
             sh 'ssh -o StrictHostKeyChecking=no jenkins@192.168.30.138 docker image tag $JOB_NAME:v1.$BUILD_ID suraj435/$JOB_NAME:v1.$BUILD_ID'
             sh 'ssh -o StrictHostKeyChecking=no jenkins@192.168.30.138 docker push suraj435/$JOB_NAME:v1.$BUILD_ID'
-            sh 'ssh -o StrictHostKeyChecking=no jenkins@192.168.30.138 docker push suraj435/$JOB_NAME:latest'
+            sh 'ssh -o StrictHostKeyChecking=no jenkins@192.168.30.138 docker push suraj435/$JOB_NAME:latest '
         }
     }
 }     
