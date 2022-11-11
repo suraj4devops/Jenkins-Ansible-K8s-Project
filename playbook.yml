@@ -1,11 +1,14 @@
 - hosts: all
   become: yes
-  tasks: 
+  tasks:
      - name: copy the deployment and service file on kubernetes master
-       copy: 
-         src: /home/jenkins/Desktop/*.yml
+       copy:
+         src: "{{ item }}"
          dest: /opt
+       with_fileglob:
+         - /home/jenkins/Desktop/*.yml
      - name: Run the deployment to create pod
        command: kubectl apply -f /opt/Deployment.yml
-     - name: create new service to access website from outsite 
-       command: kubectl apply -f /home/ubuntu/demowebsite_Service.yml
+     - name: create new service to access website from outsite
+       command: kubectl apply -f /opt/demowebsite_Service.yml
+
