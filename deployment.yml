@@ -1,0 +1,20 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+   name: demowebsite
+spec:
+   replicas: 2
+   selector:      # tells the controller which pods to watch/belong to
+    matchLabels:
+     app: demowebsite
+   template:
+      metadata:
+        labels:
+          app: demowebsite
+      spec:
+       containers:
+        - name: demowebsite
+          image: suraj435/jenkins_ansible_kubernetes
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 80
